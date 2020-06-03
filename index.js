@@ -20,7 +20,7 @@ client.on('message', message =>{
             message.channel.send('Error! Please enter a new course');           
         }
         else{           
-            dictCourses[potential[1]] = [0, 0];
+            dictCourses[potential[1]] = [0, 0, 0];
             message.channel.send('Your course has been added');
         }
     }
@@ -40,11 +40,24 @@ client.on('message', message =>{
     }
     if (message.content.startsWith(prefix +'addmark'))
     {
-        var potential = message.content.trim().split(/\s*[\s,]\s*/).filter(Boolean); 
-        console.log(potential)  
+        var potential = message.content.trim().split(/\s*[\s,]\s*/).filter(Boolean);    
         if (dictCourses.hasOwnProperty(potential[1]))        
         {
-            dictCourses[potential[1]] = [potential[2], potential[3]];            
+            if (dictCourses[potential[1]][1] == 100)
+            {
+                message.channel.send('Your final mark in ' + potential[1]+ ' is ' + dictCourses[potential[1]][0].toString());
+            }
+            //Make sure total weight does not exceed 100%
+            else if (dictCourses[potential[1]][1] + parseInt(potential[3]) <=100)
+            {
+                dictCourses[potential[1]][1] += parseInt(potential[3]);
+                dictCourses[potential[1]][2] += parseInt(potential[2]) * parseInt(potential[3])               
+                dictCourses[potential[1]][0] = (dictCourses[potential[1]][2] / dictCourses[potential[1]][1]).toFixed(2);
+                message.channel.send('Your mark in ' +potential[1]+ ' has been updated');
+            }  
+            else{
+                message.channel.send('Please enter a valid weight');
+            }
         }
         else{
             message.channel.send('Please enter an existing course!');
