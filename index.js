@@ -25,7 +25,7 @@ client.on('message', message =>{
         }
     }
     //Display all the courses for this student with current marks
-    if (message.content.startsWith(prefix+'courses'))
+    else if (message.content.startsWith(prefix+'courses'))
     {
         if (Object.keys(dictCourses).length == 0)
         {
@@ -38,7 +38,7 @@ client.on('message', message =>{
             }
         }      
     }
-    if (message.content.startsWith(prefix +'addmark'))
+    else if (message.content.startsWith(prefix +'addmark'))
     {
         var potential = message.content.trim().split(/\s*[\s,]\s*/).filter(Boolean);    
         if (dictCourses.hasOwnProperty(potential[1]))        
@@ -63,6 +63,18 @@ client.on('message', message =>{
             message.channel.send('Please enter an existing course!');
         }
       
+    }
+    else if (message.content.startsWith(prefix +'delcourse'))
+    {
+        var potential = message.content.trim().split(/\s/).filter(Boolean);    
+        if (dictCourses.hasOwnProperty(potential[1]))
+        {
+            delete dictCourses[potential[1]];
+            message.channel.send(potential[1] + ' has been deleted');
+        }    
+        else{
+            message.channel.send('Please enter an existing course!');
+        }
     }
 })
 client.login(token);
