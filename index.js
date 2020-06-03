@@ -13,7 +13,7 @@ client.on('message', message =>{
     //Add a new course to dictionary
     if (message.content.startsWith(prefix +'newcourse')) 
     {     
-        var potential = message.content.split(/\s/).filter(Boolean);            
+        var potential = message.content.trim().split(/\s/).filter(Boolean);            
         //Make sure duplicate courses not added as well
         if (dictCourses.hasOwnProperty(potential[1]))
         {
@@ -40,11 +40,11 @@ client.on('message', message =>{
     }
     if (message.content.startsWith(prefix +'addmark'))
     {
-        var potential = message.content.split(/\s/).filter(Boolean); 
-        console.log(potential);
+        var potential = message.content.trim().split(/\s*[\s,]\s*/).filter(Boolean); 
+        console.log(potential)  
         if (dictCourses.hasOwnProperty(potential[1]))        
         {
-            dictCourses[actualMessage[1]] = [actualMessage[2], actualMessage[3]];            
+            dictCourses[potential[1]] = [potential[2], potential[3]];            
         }
         else{
             message.channel.send('Please enter an existing course!');
