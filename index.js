@@ -144,8 +144,12 @@ client.on('message', message =>{
             });
             resp.on('end', () => {
                 let parsed = JSON.parse(body);
-        
-                message.channel.send(parsed.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
+                try {
+                    message.channel.send(parsed.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
+                } catch (error) {
+                    message.channel.send("Please enter a valid word");
+                }
+                
             });
         });
 
