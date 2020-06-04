@@ -4,7 +4,7 @@ const {prefix, token} = require('./config.json');
 var dictCourses = {};
 
 const client = new Discord.Client();
-//
+
 client.once('ready', () => {
     console.log('Ready');
 })
@@ -76,6 +76,43 @@ client.on('message', message =>{
         }    
         else{
             message.channel.send('Please enter an existing course!');
+        }
+    }
+    //Math Mode Feature
+    else if (message.content.startsWith(prefix +'math'))
+    {
+        var potential = message.content.trim().split(/\s/).filter(Boolean); 
+        //Decide which simple computation to carry out
+        if (potential[2] == '+')
+        {
+            var answer = parseInt(potential[1]) + parseInt(potential[3]);
+            message.channel.send(answer.toString());
+        }
+        else if (potential[2] == '-')
+        {
+            var answer = parseInt(potential[1]) - parseInt(potential[3]);
+            message.channel.send(answer.toString());
+        }
+        else if (potential[2] == '*')
+        {
+            var answer = parseInt(potential[1]) * parseInt(potential[3]);
+            message.channel.send(answer.toString());
+        }
+        else if (potential[2] == '/')
+        {
+            if (parseInt(potential[3]) != 0)
+                {
+                var answer = parseInt(potential[1]) / parseInt(potential[3]);
+                message.channel.send(answer.toString());
+                }
+            else
+            {
+                message.channel.send('Cannot divide by 0');
+            }
+        }
+        else 
+        {
+            message.channel.send('Please enter an expression in the correct format');
         }
     }
 })
