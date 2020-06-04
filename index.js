@@ -38,6 +38,7 @@ client.on('message', message =>{
             }
         }      
     }
+    //Add a mark to an existing course
     else if (message.content.startsWith(prefix +'addmark'))
     {
         var potential = message.content.trim().split(/\s*[\s,]\s*/).filter(Boolean);    
@@ -64,6 +65,7 @@ client.on('message', message =>{
         }
       
     }
+    //Delete a course 
     else if (message.content.startsWith(prefix +'delcourse'))
     {
         var potential = message.content.trim().split(/\s/).filter(Boolean);    
