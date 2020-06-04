@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const {prefix, token} = require('./config.json');
+const {api_id, api_key} = require('./api.json');
 
 var dictCourses = {};
 
@@ -114,6 +115,40 @@ client.on('message', message =>{
         {
             message.channel.send('Please enter an expression in the correct format');
         }
+    }
+    //Dictionary Feature
+    else if (message.content.startsWith(prefix +'def'))
+    {
+        var potential = message.content.trim().split(/\s/).filter(Boolean); 
+        
+        const http = require("https");        
+        const wordId = potential[1];
+        const fields = "definitions";
+        const strictMatch = "false";
+
+        const options = {
+            host: 'od-api.oxforddictionaries.com',
+            port: '443',
+            path: '/api/v2/entries/en-gb/' + wordId + '?fields=' + fields + '&strictMatch=' + strictMatch,
+            method: "GET",
+            headers: {
+              'app_id': api_id,
+              'app_key': api_key
+            }
+          };
+       
+        http.get(options, (resp) => {
+            let body = '';
+            resp.on('data', (d) => {
+                body += d;
+            });
+            resp.on('end', () => {
+                let parsed = JSON.parse(body);
+        
+                message.channel.send(parsed.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
+            });
+        });
+
     }
 })
 client.login(token);
