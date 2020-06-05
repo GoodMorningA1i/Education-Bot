@@ -1,3 +1,6 @@
+#Private keys and id
 api.json
 config.json
+
+#Dependency Directories
 node_modules

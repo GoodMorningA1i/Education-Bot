@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const {prefix, token} = require('./config.json');
 const {api_id, api_key} = require('./api.json');
-
+const pollEmbed = require('discord.js-poll-embed');
 var dictCourses = {};
 
 const client = new Discord.Client();
@@ -123,7 +123,7 @@ client.on('message', message =>{
         
         const http = require("https");        
         const wordId = potential[1];
-        const fields = "definitions";
+        const fields = 'definitions';
         const strictMatch = "false";
 
         const options = {
@@ -147,12 +147,17 @@ client.on('message', message =>{
                 try {
                     message.channel.send(parsed.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
                 } catch (error) {
-                    message.channel.send("Please enter a valid word");
+                    message.channel.send('Please enter a valid word');
                 }
                 
             });
         });
 
+    }
+    else if (message.content.startsWith(prefix +'poll'))
+    {    
+         
+        pollEmbed('Who are you', 'Poll #1', ['Jonathan', 'Jack']);
     }
 })
 client.login(token);
