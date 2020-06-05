@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const {prefix, token} = require('./config.json');
 const {api_id, api_key} = require('./api.json');
+
 const pollEmbed = require('discord.js-poll-embed');
 var dictCourses = {};
 
