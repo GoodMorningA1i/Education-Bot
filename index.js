@@ -11,7 +11,7 @@ client.once('ready', () => {
     console.log('Ready');
 })
 
-client.on('message', message =>{
+client.on('message', async message =>{
     //Add a new course to dictionary
     if (message.content.startsWith(prefix +'newcourse')) 
     {     
@@ -81,7 +81,7 @@ client.on('message', message =>{
         }
     }
     //Math Mode Feature
-    else if (message.content.startsWith(prefix +'math'))
+    if (message.content.startsWith(prefix +'math'))
     {
         var potential = message.content.trim().split(/\s/).filter(Boolean); 
         //Decide which simple computation to carry out
@@ -118,7 +118,7 @@ client.on('message', message =>{
         }
     }
     //Dictionary Feature
-    else if (message.content.startsWith(prefix +'def'))
+    if (message.content.startsWith(prefix +'def'))
     {
         var potential = message.content.trim().split(/\s/).filter(Boolean); 
         
@@ -153,12 +153,110 @@ client.on('message', message =>{
                 
             });
         });
-
     }
-    else if (message.content.startsWith(prefix +'poll'))
+    //Poll feature 
+    if (message.content.startsWith(prefix + 'poll'))
     {    
-         
-        pollEmbed('Who are you', 'Poll #1', ['Jonathan', 'Jack']);
-    }
+         var question = message.content.substring(6).trim();
+         message.channel.send('Enter answer options. Max 10. Type done when finished.');
+         //make sure user typing options is same as user who created poll        
+         let filter = m => {             
+             if (m.author.id == message.author.id)
+             {
+                 if (m.content.toLowerCase() == 'done')
+                 {
+                     collector.stop()
+                 }
+                 else 
+                 {
+                     return true;
+                 }
+             }
+             else{
+                 return false;
+             }
+         }
+         let collector = message.channel.createMessageCollector(filter, {maxMatches:10});
+         //get the pollOptions user entered
+         let pollOptions = await getPollOptions(collector);
+         if (pollOptions.length < 2)
+         {
+             message.channel.send('Not enough options! You must have at least 2. Please create another poll');
+             return;
+         }
+         //Show user their poll options for confirmation 
+         let embed = new Discord.MessageEmbed();
+         embed.setTitle(question);
+         embed.setDescription(pollOptions.join('\n'));
+         let confirm = await message.channel.send(embed);
+         await confirm.react('✅');
+         await confirm.react('❎');
+
+        //get user's reaction
+        let reactionFilter = (reaction, user) => (user.id == message.author.id) && !user.bot;
+        let reaction = (await confirm.awaitReactions(reactionFilter, {max:1})).first();
+        //Continue with poll
+        if  (reaction.emoji.name == '✅' )
+        {
+            message.channel.send('Poll will begin in 5 seconds. You will have 60 seconds to vote');
+            await delay(5000);
+            message.channel.send('Vote now');
+            let votes = new Map();
+            let pollTally = new Discord.Collection(pollOptions.map(o =>[o, 0]));
+            let pollFilter = m => !m.bot;
+            let voteCollector = message.channel.createMessageCollector(pollFilter, {
+                time: 6000
+            });
+            await processPollResults(voteCollector, pollOptions, votes, pollTally);                     
+            let entries = [...pollTally.entries()];
+            let embed = new Discord.MessageEmbed();
+            let desc = '';
+            entries.forEach(entry => desc += entry[0] + ' received ' + entry[1] + ' vote(s) \n');
+            embed.setDescription(desc);
+            message.channel.send('The results are:', embed);
+        }
+        //Cancel poll
+        else if (reaction.emoji.name =='❎')
+        {
+            message.channel.send('Poll cancelled');
+        }
+    }  
 })
+//Function to get poll options 
+function getPollOptions(collector)
+{
+    return new Promise((resolve, reject) => {
+        collector.on('end', collected => resolve(collected.map(m => m.content)));
+    });
+}
+//Timeout delay for start of poll
+function delay(time)
+{
+    return new Promise((resolve, reject) => {
+        setTimeout(() =>{
+            resolve();
+        }, time)
+    });
+}
+
+//function to process poll results
+function processPollResults(voteCollector, pollOptions, votes, pollTally)
+{
+    return new Promise((resolve, reject) => {
+        voteCollector.on('collect', msg =>{
+            let option = msg.content.toLowerCase();
+            //check if user already voted and if option exists 
+            if (!votes.has(msg.author.id) && pollOptions.includes(option))
+            {
+                votes.set(msg.author.id, msg.content);
+                let voteCount = pollTally.get(option);
+                pollTally.set(option, ++voteCount);
+            }
+        });
+        voteCollector.on('end', collected =>{
+            console.log('Collected '+ collected.size + ' votes.')
+            resolve(collected);
+        });
+    })
+}
 client.login(token);
