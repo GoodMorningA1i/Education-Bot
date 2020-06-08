@@ -28,4 +28,4 @@ Example: !newcourse CSC148, 90, 10\
 Description: Command deletes a course from memory\
 Command: !delcourse Your_Course_Name \
 Example: !delcourse Science\
-![](images/addmark.JPG)
+![](images/delcourse.JPG)
