@@ -21,4 +21,11 @@ Example: !newcourse CSC148\
 #### Add a mark ####
 Description: Command adds a new mark to your report card for a certain course\
 Command: !addmark Your_Course_Name, Your_Grade, Weight \
-Example: !newcourse CSC148, 90, 10  (this command would input a mark of 90% on an assignment that weights 10% to the course CSC148\
+Example: !newcourse CSC148, 90, 10\
+![](images/addmark.JPG)
+
+#### Delete a course ####
+Description: Command deletes a course from memory\
+Command: !delcourse Your_Course_Name \
+Example: !delcourse Science\
+![](images/addmark.JPG)
