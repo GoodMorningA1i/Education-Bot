@@ -61,3 +61,4 @@ This feature helps make online learning more engaging and interacting for studen
 Description: Start a new poll with up to 10 options. React with a checkmark to confirm the poll\
 Command: !poll Your_question\
 Example: !def How old are you?\
+![](images/poll.JPG)
