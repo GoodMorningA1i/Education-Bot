@@ -46,10 +46,18 @@ Example: !math 22 * 17\
 ![](images/math.JPG)
 
 ### Dictionary Feature ###
-Ever been in class and not understand what a word means? Rather than waste time looking for a dictionary just use the Dictionary Feature to get the definition of any word in a matter of seconds. 
+Ever been in class and not understand what a word means? Well worry no more with the Education Bot! Rather than waste time looking for a dictionary just use the Dictionary Feature to get the definition of any word in a matter of seconds. 
 
 #### Definition ####
 Description: Return the defintion of a user entered word\
 Command: !def Your_word\
 Example: !def computer\
 ![](images/definition.JPG)
+
+### Poll Feature ###
+This feature helps make online learning more engaging and interacting for students and teachers. Want a quick and easy way to see if your students understood a concept? Use the Poll feature to get feedback from your students!
+
+#### Create a poll ####
+Description: Start a new poll with up to 10 options. React with a checkmark to confirm the poll\
+Command: !poll Your_question\
+Example: !def How old are you?\
