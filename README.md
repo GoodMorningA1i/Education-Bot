@@ -43,3 +43,4 @@ The Math Mode Feature is a calculator for simple math computations. Gone are the
 Description: Calculate an expression. Can do addition (+), subtraction (-), division (/), multiplication (*)\
 Command: !math num_1 operation num_2 \
 Example: !math 22 * 17\
+![](images/math.JPG)
