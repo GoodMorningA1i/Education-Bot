@@ -40,6 +40,6 @@ Example: !courses\
 The Math Mode Feature is a calculator for simple math computations. Gone are the days where you have to reach for a calculator in lecture. Just use it right in Discord!
 
 #### Calculate ####
-Description: Calculate an expression. Can do addition, subtraction, multiplicaiton and division.
+Description: Calculate an expression. Can do addition (+), subtraction (-), division (/), multiplication (8)\
 Command: !math num_1 operation num_2 \
 Example: !math 22 * 17\
