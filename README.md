@@ -44,3 +44,11 @@ Description: Calculate an expression. Can do addition (+), subtraction (-), divi
 Command: !math num_1 operation num_2 \
 Example: !math 22 * 17\
 ![](images/math.JPG)
+
+### Dictionary Feature ###
+Ever been in class and not understand what a word means? Rather than waste time looking for a dictionary just use the Dictionary Feature to get the definition of any word in a matter of seconds. 
+
+#### Definition ####
+Description: Return the defintion of a user entered word\
+Command: !def Your_word\
+Example: !def computer\
