@@ -52,3 +52,4 @@ Ever been in class and not understand what a word means? Rather than waste time 
 Description: Return the defintion of a user entered word\
 Command: !def Your_word\
 Example: !def computer\
+![](images/definition.JPG)
