@@ -16,4 +16,4 @@ The Report Card Feature is a live grade calculator. Just enter your courses at t
 Description: Command adds a new course to your report card\
 Command: !newcourse Your_Course_Name\
 Example: !newcourse CSC148\
-![](images/newcourse.jpg)
+![](images/newcourse.JPG)
