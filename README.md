@@ -37,4 +37,4 @@ Example: !courses\
 ![](images/courses.JPG)
 
 ### Math Mode Feature ###
-The Math Mode Feature is a calculator for simple math computations. Gone are the days where you have to reach for a calculator in lecture. Just use it right in Discord!
+The Math Mode Feature is a calculator for simple math computations (+, -, *, /). Gone are the days where you have to reach for a calculator in lecture. Just use it right in Discord!
