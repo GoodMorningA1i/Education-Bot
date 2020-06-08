@@ -13,4 +13,6 @@ The Education Bot comes with many features that you can take advantage of. Below
 The Report Card Feature is a live grade calculator. Just enter your courses at the beginning of the semester and once you get your marks on assignments input them in. The Education Bot will do the rest for you!
 
 #### Add a course ####
-!newcourse Your_Course_Name
+Description: Command adds a new course to your report card
+Command: !newcourse Your_Course_Name
+Example: !newcourse CSC148
