@@ -4,5 +4,8 @@ A bot on discord to make online education more interactive, motivating and conve
 
 
 # Setup
-All you need to do is follow the link and invite the Education Bot to your server and you're done! It's that easy and no other setup is required. You're all set to start using the Education Bot to its maximum capabilities. 
+All you need to do is follow the link and invite the Education Bot to your server and you're done! It's that easy and no other setup is required. You're all set to start using the Education Bot to its maximum capabilities!
+
+# Commands
+The Education Bot comes with many features that you can take advantage of. Below is the documentation for all of these commands, including prefix, formatting, examples and explanations. 
 
