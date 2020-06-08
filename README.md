@@ -34,4 +34,4 @@ Example: !delcourse Science\
 Description: Command will display your updated report card\
 Command: !courses \
 Example: !courses\
-![](images/delcourse.JPG)
+![](images/courses.JPG)
