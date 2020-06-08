@@ -9,3 +9,4 @@ All you need to do is follow the link and invite the Education Bot to your serve
 # Commands
 The Education Bot comes with many features that you can take advantage of. Below is the documentation for all of these commands, including prefix, formatting, examples and explanations. 
 
+### Report Card Feature ###
