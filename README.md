@@ -29,3 +29,9 @@ Description: Command deletes a course from memory\
 Command: !delcourse Your_Course_Name \
 Example: !delcourse Science\
 ![](images/delcourse.JPG)
+
+#### Display Report Card ####
+Description: Command will display your updated report card\
+Command: !courses \
+Example: !courses\
+![](images/delcourse.JPG)
