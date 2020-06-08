@@ -62,3 +62,5 @@ Description: Start a new poll with up to 10 options. React with a checkmark to c
 Command: !poll Your_question\
 Example: !def How old are you?\
 ![](images/poll.JPG)
+End of poll message:
+![](images/end.JPG)
