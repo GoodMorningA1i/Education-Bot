@@ -221,6 +221,14 @@ client.on('message', async message =>{
             message.channel.send('Poll cancelled');
         }
     }  
+    // Covid-19 help feature    
+    if (message.content.startsWith(prefix + 'covid'))
+    {
+        message.channel.send('Here are some resources to keep up to date with Covid-19 \n'
+        + 'WHO: https://www.who.int/emergencies/diseases/novel-coronavirus-2019 \n' +
+        'IABC: https://www.iabc.com/covid-19-resources/ \n' +
+        'John Hopkins University: https://coronavirus.jhu.edu/');
+    }
 })
 //Function to get poll options 
 function getPollOptions(collector)
