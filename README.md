@@ -73,40 +73,37 @@ End of poll message:
 Description: Command adds a new reminder for the user\
 Command: !addreminder {time} {message}\
 Example: !addreminder 30s Hello! OR !addreminder 40m Make sure to brush your teeth\
-![](images/addreminder pic (education bot).PNG)
+![](images/addreminder.PNG)
 
 #### View all reminders ####
 Description: Command that allows the user to view all reminders\
 Command: !reminders\
-Example: !reminders\
-![](images/allReminders (education bot).PNG)
+![](images/reminders.PNG)
 
 #### Add a schedule of availability ####
 Description: Command that adds a new schedule of availability for the user\
 Command: !addschedule {day} {time}\
 Example: !addschedule Monday 2-5pm\
-![](images/addschedule (education bot).PNG)
+![](images/addschedule.PNG)
 
 #### View schedule of availability ####
 Description: Command that can show you the entire schedule of availability for a user\
 Command: !viewschedule\
-Example: !viewschedule\
-![](images/viewschedule(education bot).PNG)
+![](images/viewschedule.PNG)
 
 #### Add a goal ####
 Description: Command that adds a new goal\
 Command: !addgoal {message}\
 Example: !addgoal Become the best person I can possibly become\
-![](images/addgoal (education bot).PNG)
+![](images/addgoal.PNG)
 
 #### View all goals ####
 Description: Command that shows you all the goals\
 Command: !goals\
-Example: !goals\
-![](images/viewGoals (education bot).PNG)
+![](images/viewgoals.PNG)
 
 #### Delete a goal ####
 Description: Command that deletes a goal\
 Command: !delgoal {goal_number}\
 Example: !delgoal 1\
-![](images/delgoal (education bot).PNG)
+![](images/delgoal.PNG)
