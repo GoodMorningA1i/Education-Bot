@@ -1,11 +1,19 @@
+//require modules and files
 const Discord = require('discord.js');
 const {prefix, token} = require('./config.json');
 const {api_id, api_key} = require('./api.json');
 
+//create a new Discord client
+const client = new Discord.Client();
+
+//Intializing variables
 const pollEmbed = require('discord.js-poll-embed');
 var dictCourses = {};
-
-const client = new Discord.Client();
+reminder_to_reminderInfo = {};
+reminder_num = 0;
+date_to_availability = {};
+goals = {};
+goal_num = 0;
 
 client.once('ready', () => {
     console.log('Ready');
@@ -228,6 +236,170 @@ client.on('message', async message =>{
         + 'WHO: https://www.who.int/emergencies/diseases/novel-coronavirus-2019 \n' +
         'IABC: https://www.iabc.com/covid-19-resources/ \n' +
         'John Hopkins University: https://coronavirus.jhu.edu/');
+    }
+    //help command (to view a list of all the commands)
+    if (message.content.startsWith(`${prefix}educationbot`)) {
+        var commands = 'Here are a list of commands that you can use with the Education Bot: \n - !newcourse Your_Course_Name \n - !addmark Your_Course_Name, Your_Grade, Weight \
+        \n - !delcourse Your_Course_Name \n - !courses \n - !math num_1 operation num_2 \n - !def Your_word \n - !poll Your_question \n - !addreminder {time} {message} \n - !reminders \
+        \n - !addschedule {weekday - i.e. Monday} {time - i.e. 2-5pm} \n - !viewschedule \n - !addgoal {message} \n - !goals \n - !delgoal {num}'
+        message.channel.send(commands)
+    }
+
+    //Reminder system (it uses a timer, rather than a specific date)
+    if (message.content.startsWith(`${prefix}addreminder`)) {
+        
+        try {
+            // Variables
+            var today = new Date();
+            var curr_time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var returntime;
+            var time_unit;
+            split_msg = message.content.split(' ');
+            //message.channel.send('Message recieved from ' + message.author.id + ' at ' + Date.now().toString());
+
+            // Sets the return time
+            time_unit = split_msg[1].substring((split_msg[1].length - 1), (split_msg[1].length));
+            returntime = split_msg[1].substring(0, (split_msg[1].length - 1));
+
+
+            // Putting things into a dictionary
+            key_name = 'Reminder ' + reminder_num;
+            reminder_to_reminderInfo[key_name] = [curr_time, split_msg[1], ''];
+
+            //Building the message
+            split_msg.shift();
+            split_msg.shift();
+
+            var content = split_msg.join();
+            content = content.replace(/,/g, " ");
+
+            //Adding message to the dictionary
+            reminder_to_reminderInfo[key_name][2] = content;
+            message.channel.send(reminder_to_reminderInfo.length);
+            reminder_num += 1;
+
+
+            // Based off the time unit, sets the time
+            switch (time_unit) {
+                
+                //For seconds
+                case 's':
+                    returntime = returntime * 1000;
+                    break;
+
+                //For minutes
+                case 'm':
+                    returntime = returntime * 1000 * 60;
+                    break;
+
+                //For hours
+                case 'h':
+                    returntime = returntime * 1000 * 60 * 60;
+                    break;
+
+                // For days
+                case 'd':
+                    returntime = returntime * 1000 * 60 * 60 * 24;
+                    break;
+
+                //Default is in seconds
+                default:
+                    returntime = returntime * 1000;
+                    break;
+            }
+
+            // Returns the message after the timer ends
+            client.setTimeout(function () {
+
+                //Sending message to discord after the timer runs out   
+                message.channel.send(content);
+                delete reminder_to_reminderInfo[key_name] //My best shot at deleting reminders
+
+            }, returntime)
+
+        }
+
+        //Checks for exceptions
+		catch (e) {
+			message.channel.send("An error has occured, please make sure the command in this format: !reminder {time} {message}");
+			console.error(e.toString());
+		}
+    }
+
+    //Display all the reminders
+    if (message.content.startsWith(`${prefix}reminders`)) {
+
+
+        for (var key in reminder_to_reminderInfo) {
+            message.channel.send('- ' + key + ' (Reminder set time: ' + reminder_to_reminderInfo[key][0] + ' & Reminder time: ' + reminder_to_reminderInfo[key][1] + ') - Message: ' + reminder_to_reminderInfo[key][2])
+        }
+    }
+
+
+    // //Remove reminders
+    // if (message.content.startsWith(`${prefix}delreminder`)) {
+
+    //     msg = message.content.split(' ')
+    //     var reminder_number = msg[1] + ' ' + msg[2];
+    //     message.channel.send(reminder_number);
+    //     message.channel.send(reminder_to_reminderInfo.length);
+        
+    //     if (reminder_to_reminderInfo.hasOwnProperty(reminder_num)) {
+    //         delete reminder_to_reminderInfo[reminder_num];
+    //         message.channel.send(reminder_num + ' has been removed.')
+    //     }
+    //     else {
+    //         message.channel.send("Please enter an existing reminder number.")
+    //     }
+
+    // }
+
+    //Add Student and Teacher Availabilities
+    if (message.content.startsWith(`${prefix}addschedule`)) {
+        content = message.content.split(' ');
+        date = content[1];
+        timing = content[2];
+
+        date_to_availability[date] = timing;
+    }
+
+
+    //View Student and Teacher Availabilities
+    if (message.content.startsWith(`${prefix}viewschedule`)) {
+        for (var key in date_to_availability) {
+            message.channel.send('- ' + key + ': ' + date_to_availability[key] + '\n');
+        }
+    }
+
+    //Adding goals to a list
+    if (message.content.startsWith(`${prefix}addgoal`)) {
+        msg = message.content.split(' ');
+        
+        msg.shift();
+        var content = msg.join();
+        content = content.replace(/,/g, " ");
+
+        goals[goal_num] = content;
+        goal_num += 1;
+    }
+
+    //View goals to a list
+    if (message.content.startsWith(`${prefix}goals`)) {
+        for (var key in goals) {
+            message.channel.send(key + ') ' + goals[key] + '\n');
+        }
+    }
+
+    //Delete a goal to a list
+    if (message.content.startsWith(`${prefix}delgoal`)) {
+        num = message.content.split(' ')[1];
+        if (goals.hasOwnProperty(num)) {
+            delete goals[num];
+            message.channel.send("Goal " + num + " has been deleted.")
+        } 
+        else {
+            message.channel.send('Please enter an appropriate goal number.');
+        }
     }
 })
 //Function to get poll options 
