@@ -9,6 +9,10 @@ All you need to do is follow the link and invite the Education Bot to your serve
 # Commands
 The Education Bot comes with many features that you can take advantage of. Below is the documentation for all of these commands, including prefix, formatting, examples and explanations. 
 
+### Help Command ###
+Description If you ever need a list of all the commands available for the education bot, that is when the help command becomes helpful\
+Command: !educationbot\
+
 ### Report Card Feature ###
 The Report Card Feature is a live grade calculator. Just enter your courses at the beginning of the semester and once you get your marks on assignments input them in. The Education Bot will do the rest for you!
 
