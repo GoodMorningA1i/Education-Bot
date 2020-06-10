@@ -213,7 +213,7 @@ client.on('message', async message =>{
             let pollTally = new Discord.Collection(pollOptions.map(o =>[o, 0]));
             let pollFilter = m => !m.bot;
             let voteCollector = message.channel.createMessageCollector(pollFilter, {
-                time: 6000
+                time: 60000
             });
             await processPollResults(voteCollector, pollOptions, votes, pollTally);                     
             let entries = [...pollTally.entries()];
