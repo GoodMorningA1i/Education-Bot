@@ -14,19 +14,19 @@ The Report Card Feature is a live grade calculator. Just enter your courses at t
 
 #### Add a course ####
 Description: Command adds a new course to your report card\
-Command: !newcourse Your_Course_Name\
+Command: !newcourse {Your_Course_Name}\
 Example: !newcourse CSC148\
 ![](images/newcourse1.JPG)
 
 #### Add a mark ####
 Description: Command adds a new mark to your report card for a certain course\
-Command: !addmark Your_Course_Name, Your_Grade, Weight \
+Command: !addmark {Your_Course_Name}, {Your_Grade}, {Weight}\
 Example: !newcourse CSC148, 90, 10\
 ![](images/addmark.JPG)
 
 #### Delete a course ####
 Description: Command deletes a course from memory\
-Command: !delcourse Your_Course_Name \
+Command: !delcourse {Your_Course_Name} \
 Example: !delcourse Science\
 ![](images/delcourse.JPG)
 
@@ -41,7 +41,7 @@ The Math Mode Feature is a calculator for simple math computations. Gone are the
 
 #### Calculate ####
 Description: Calculate an expression. Can do addition (+), subtraction (-), division (/), multiplication (*)\
-Command: !math num_1 operation num_2 \
+Command: !math {num_1} {operation} {num_2} \
 Example: !math 22 * 17\
 ![](images/math.JPG)
 
@@ -50,7 +50,7 @@ Ever been in class and not understand what a word means? Well worry no more with
 
 #### Definition ####
 Description: Return the defintion of a user entered word\
-Command: !def Your_word\
+Command: !def {Your_word}\
 Example: !def computer\
 ![](images/definition.JPG)
 
@@ -59,7 +59,7 @@ This feature helps make online learning more engaging and interacting for studen
 
 #### Create a poll ####
 Description: Start a new poll with up to 10 options. React with a checkmark to confirm the poll\
-Command: !poll Your_question\
+Command: !poll {Your_question}\
 Example: !def How old are you?\
 ![](images/poll.JPG)
 End of poll message:
