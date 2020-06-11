@@ -6,6 +6,8 @@ A bot on discord to make online education more interactive, motivating and conve
 # Setup
 All you need to do is follow the link and invite the Education Bot to your server and you're done! It's that easy and no other setup is required. You're all set to start using the Education Bot to its maximum capabilities!
 
+Link to add Education Bot to your server: https://discord.com/oauth2/authorize?client_id=717453579513757819&scope=bot
+
 # Commands
 The Education Bot comes with many features that you can take advantage of. Below is the documentation for all of these commands, including prefix, formatting, examples and explanations. 
 
@@ -69,7 +71,7 @@ Example: !def How old are you?\
 End of poll message:
 ![](images/end.JPG)
 
-### Reminder Features ###
+### Reminder Feature ###
 
 #### Add a reminder ####
 Description: Command adds a new reminder for the user\
