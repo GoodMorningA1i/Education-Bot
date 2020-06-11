@@ -69,6 +69,8 @@ Example: !def How old are you?\
 End of poll message:
 ![](images/end.JPG)
 
+### Reminder Features ###
+
 #### Add a reminder ####
 Description: Command adds a new reminder for the user\
 Command: !addreminder {time} {message}\
@@ -86,10 +88,14 @@ Command: !addschedule {day} {time}\
 Example: !addschedule Monday 2-5pm\
 ![](images/addschedule.PNG)
 
+### Schedule Feature ###
+
 #### View schedule of availability ####
 Description: Command that can show you the entire schedule of availability for a user\
 Command: !viewschedule\
 ![](images/viewschedule.PNG)
+
+### Goal Feature ###
 
 #### Add a goal ####
 Description: Command that adds a new goal\
