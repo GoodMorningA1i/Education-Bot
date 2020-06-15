@@ -1,4 +1,4 @@
-# Education Bot <img src="images/pencil.png" alt="drawing" width="50"/>
+# Education_Bot <img src="images/pencil.png" alt="drawing" width="50"/>
 
 A bot on discord to make online education more engaging, interactive, motivating and convenient for instructors and students. With numerous intuitive features, the Education Bot will make online learning a success.
 
