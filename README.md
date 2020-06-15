@@ -122,4 +122,4 @@ Example: !delgoal 1\
 Description: Command that displays some resouces about Covid-19\
 Command: !covid\
 Example: !covid\
-![](images/delgoal.PNG)
+![](images/Covid,JPG.JPG)
