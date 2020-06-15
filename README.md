@@ -115,3 +115,11 @@ Description: Command that deletes a goal\
 Command: !delgoal {goal_number}\
 Example: !delgoal 1\
 ![](images/delgoal.PNG)
+
+
+### Covid-19 Resources Feature ###
+#### Get Latest Covid-19 Info ####
+Description: Command that displays some resouces about Covid-19\
+Command: !covid\
+Example: !covid\
+![](images/delgoal.PNG)
