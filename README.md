@@ -9,7 +9,12 @@ Some of the challenges we addressed with our Education_Bot features include:
     * COVID-19 Info Feature, COVID-19 Emergency Benefit Resources
 * Non-Academic Related Resources
     * More Resources Feature (Mental Health Resources, etc) 
-
+* Lack of Interaction
+    * Schedule Feature, Poll Feature, Breakout Room Feature
+* Academic Issues
+    * Dictionary Feature, Calculator Feature, Report Card Feature
+* Frequent Distractions
+    * Increasing motivation and interaction help to combat boredom and distractions
 
 
 # Setup
