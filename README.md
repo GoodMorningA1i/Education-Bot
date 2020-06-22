@@ -5,6 +5,10 @@ A bot on discord to make online education more engaging, interactive, motivating
 Some of the challenges we addressed with our Education_Bot features include:
 * Lack of Motivation
     * Goal Feature, Reminder Feature
+* COVID-19 Panic
+    * COVID-19 Info Feature, COVID-19 Emergency Benefit Resources
+* Non-Academic Related Resources
+    * More Resources Feature (Mental Health Resources, etc) 
 
 
 
