@@ -4,7 +4,7 @@ A bot on discord to make online education more engaging, interactive, motivating
 
 Some of the challenges we addressed with our Education_Bot features include:
 * Lack of Motivation
-** Goal Feature, Reminder Feature
+    * Goal Feature, Reminder Feature
 
 
 
