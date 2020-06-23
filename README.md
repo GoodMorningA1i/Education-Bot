@@ -88,7 +88,7 @@ End of poll message:
 ### Reminder Feature ###
 
 #### Add a reminder ####
-Description: Command adds a new reminder for the user\
+Description: Command adds a new reminder for the user (the timing metrics that you can use: s (seconds), m (minutes), h (hours), d (days))\
 Command: !addreminder {time} {message}\
 Example: !addreminder 30s Hello! OR !addreminder 40m Make sure to brush your teeth\
 ![](images/addreminder.PNG)
