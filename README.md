@@ -39,7 +39,7 @@ Example: !newcourse CSC148\
 ![](images/newcourse1.JPG)
 
 #### Add a mark ####
-Description: Command adds a new mark to your report card for a certain course\
+Description: Command adds a new mark to your report card for a certain course (the weight is out of 100)\
 Command: !addmark {Your_Course_Name}, {Your_Grade}, {Weight}\
 Example: !newcourse CSC148, 90, 10\
 ![](images/addmark.JPG)
