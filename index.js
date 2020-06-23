@@ -241,8 +241,8 @@ client.on('message', async message =>{
     if (message.content.startsWith(`${prefix}educationbot`)) {
         var commands = 'Here are a list of commands that you can use with the Education Bot: \n - !newcourse Your_Course_Name \n - !addmark Your_Course_Name, Your_Grade, Weight \
         \n - !delcourse Your_Course_Name \n - !courses \n - !math num_1 operation num_2 \n - !def Your_word \n - !poll Your_question \n - !addreminder {time} {message} \n - !reminders \
-        \n - !addschedule {weekday - i.e. Monday} {time - i.e. 2-5pm} \n - !viewschedule \n - !addgoal {message} \n - !goals \n - !delgoal {num}'
-        message.channel.send(commands)
+        \n - !addschedule {weekday - i.e. Monday} {time - i.e. 2-5pm} \n - !viewschedule \n - !addgoal {message} \n - !goals \n - !delgoal {num} \n - !moreresources \n - !randomnum {number_of_students} {number_of_breakout_rooms}';
+        message.channel.send(commands);
     }
 
     //Reminder system (it uses a timer, rather than a specific date)
@@ -376,7 +376,7 @@ client.on('message', async message =>{
         num = message.content.split(' ')[1];
         if (goals.hasOwnProperty(num)) {
             delete goals[num];
-            message.channel.send("Goal " + num + " has been deleted.")
+            message.channel.send("Goal " + num + " has been deleted.");
         } 
         else {
             message.channel.send('Please enter an appropriate goal number.');
