@@ -139,13 +139,13 @@ Example: !covid\
 ![](images/Covid,JPG.JPG)
 
 ### More Resources Feature ###
-Description: Command that displays a variety of resources for students that use in-person school for more than just a place of learning.
--> Resources involved are: Student Nutrition Program, Ending Violence Support, COVID 19 Emergency Benefits, Mental Health Support, Disability Support Program, and Gov of Ontario Page (this page has a multitude of resources)
-Command: !moreresources
-![](images/moreresources.png)
+Description: Command that displays a variety of resources for students that use in-person school for more than just a place of learning.\
+-> Resources involved are: Student Nutrition Program, Ending Violence Support, COVID 19 Emergency Benefits, Mental Health Support, Disability Support Program, and Gov of Ontario Page (this page has a multitude of resources)\
+Command: !moreresources\
+![](images/moreresources.PNG)
 
 ### Random Number Generator for BreakOut Rooms ###
-Description: Command that lets the user know how many students to put in each breakout room with the user inputting the number of students and the number of breakout rooms
-Command: !randomnum {number_of_students} {number_of_breakout_rooms)
-Example: !randomnum 10 5
-![](images/randomnum.png)
+Description: Command that lets the user know how many students to put in each breakout room with the user inputting the number of students and the number of breakout rooms \
+Command: !randomnum {number_of_students} {number_of_breakout_rooms)\
+Example: !randomnum 10 5\
+![](images/randomnum.PNG)
