@@ -335,25 +335,6 @@ client.on('message', async message =>{
         }
     }
 
-
-    // //Remove reminders
-    // if (message.content.startsWith(`${prefix}delreminder`)) {
-
-    //     msg = message.content.split(' ')
-    //     var reminder_number = msg[1] + ' ' + msg[2];
-    //     message.channel.send(reminder_number);
-    //     message.channel.send(reminder_to_reminderInfo.length);
-        
-    //     if (reminder_to_reminderInfo.hasOwnProperty(reminder_num)) {
-    //         delete reminder_to_reminderInfo[reminder_num];
-    //         message.channel.send(reminder_num + ' has been removed.')
-    //     }
-    //     else {
-    //         message.channel.send("Please enter an existing reminder number.")
-    //     }
-
-    // }
-
     //Add Student and Teacher Availabilities
     if (message.content.startsWith(`${prefix}addschedule`)) {
         content = message.content.split(' ');
@@ -400,6 +381,33 @@ client.on('message', async message =>{
         else {
             message.channel.send('Please enter an appropriate goal number.');
         }
+    }
+
+     //Resources For Students Who Use In-Person School For More A Place Of Learning
+     if (message.content.startsWith(`${prefix}moreresources`)) {
+        message.channel.send('We understand that in-person school can be more than just a place of learning. Perhaps you went to in-person school for emotional reasons, OR health or nutritional reasons. Whatever your reason is, we want to provide you with the support you need.');
+        message.channel.send('Here is the phone number of one of the admins of the Education Bot. Please feel free to let him know about any troubles that you are facing.');
+        message.channel.send('Ali Syed: 289-971-1127 OR alisyed0206@gmail.com');
+        message.channel.send('\nHere are a list of resources that you may find useful:');
+        message.channel.send('- Student Nutrition Program: https://www.ontario.ca/page/student-nutrition-program');
+        message.channel.send('- Ending Violence Support: https://endingviolencecanada.org/getting-help-2');
+        message.channel.send('- Mental Health Support: https://www.ontario.ca/page/find-mental-health-support');
+        message.channel.send('- Ontario Disability Support Program: https://www.mcss.gov.on.ca/en/mcss/programs/social/odsp');
+        message.channel.send('- Governement of Ontario Page (List of Support): https://www.ontario.ca/page/government-ontario');
+        message.channel.send('- COVID-19 Emergency Benefits: https://www.canada.ca/en/services/benefits/covid19-emergency-benefits.html');
+    }
+
+    //Creating a random number generator for breakout rooms (increase interactivity between students)
+    if (message.content.startsWith(`${prefix}randomnum`)) {
+
+      var content = message.content.split(' ');
+      var numStudents = content[1];
+      var numBreakoutRooms = content[2];
+      var numPerRoom = Math.trunc(numStudents/numBreakoutRooms);
+      var remainder = numStudents%numBreakoutRooms;
+
+      message.channel.send(numBreakoutRooms + " breakout rooms will be used and each breakout room should have " + numPerRoom + " members with the exception of " + remainder + " group(s) of " + (numPerRoom + 1) + ".");
+
     }
 })
 //Function to get poll options 
