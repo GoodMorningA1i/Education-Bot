@@ -22,7 +22,7 @@ All you need to do is follow the link and invite the Education Bot to your serve
 
 The tools we used to build this discord bot are javascript, and node.js. You will also need to download discord.js, math.js, and discord.js-poll-embed through Git or the command line. (For example, to download math.js, you would need to type in 'npm install math.js' in the command line and a similar process exists for the other packages.
 
-Link to add Education Bot to your server: https://discord.com/oauth2/authorize?client_id=717453579513757819&scope=bot
+Link to add Education Bot to your server: https://discord.com/api/oauth2/authorize?client_id=717453579513757819&permissions=2048&scope=bot
 
 # Commands
 The Education Bot comes with many features that you can take advantage of. Below is the documentation for all of these commands, including prefix, formatting, examples and explanations. 
